@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
+import { Provider } from 'react-redux';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,6 +13,7 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import store from './utils/store';
 
 const client = new ApolloClient({
   request: operation => {
@@ -30,6 +32,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Provider store={store}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -45,6 +48,7 @@ function App() {
           </div>
           <Footer />
         </div>
+        </Provider>
       </Router>
     </ApolloProvider>
   );
