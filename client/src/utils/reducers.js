@@ -15,7 +15,7 @@ const initialState = {
    cart: [],
    categories: [],
    cartOpen: false,
-   currentCategory: {}
+   currentCategory: ""
 }
 
 export const reducer = (state = initialState, action) => {
